@@ -9,5 +9,6 @@ class Equipment extends Model
 {
     use HasFactory;
     protected $guarded =[];
+    public $incrementing = false;
     protected $primaryKey = 'SSID';
 }
