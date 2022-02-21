@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::patch('equipment/{equipment}',[EquipmentController::class,'update']);
+Route::apiResource('equipment',EquipmentController::class)->only('index','update','store');
