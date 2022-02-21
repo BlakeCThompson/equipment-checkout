@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Equipment;
-use Carbon\Carbon;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class EquipmentController extends Controller
+class UsersController extends Controller
 {
     /**
-     * Display all equipment entries.
+     * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return response()->json(Equipment::all());
+        return response()->json(User::all());
     }
 
     /**
@@ -50,25 +49,27 @@ class EquipmentController extends Controller
         //
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
 
     /**
-     * Used for checking out equipment
+     * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Equipment $equipment)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'user_id' => 'integer|required',
-            'note' => 'string|required'
-        ]);
-        $equipment->checked_out_by = $request->input('user_id');
-        $equipment->date_checked_out = Carbon::now();
-        $equipment->note = $request->input('note');
-        $equipment->save();
-        return response(['message'=>'equipment successfully checked out']);
+        //
     }
 
     /**
